@@ -1,7 +1,15 @@
 /* font-family: 'Oswald', sans-serif;
 font-family: 'Quattrocento', serif; */
-
 /* Fonts */
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #ebeae7;
+  display: flex;
+  flex-direction: column;
+}
 
 h1, h2, h3 {
   padding: 2% 0;
@@ -26,6 +34,9 @@ hr {
 }
 
 /* Containers */
+.content {
+  flex: 1 0 auto;
+}
 
 .container-fluid {
   text-align: justify;
@@ -33,94 +44,75 @@ hr {
 }
 
 /* Welcome Screen */
+.index-background {
+  background-image: url(../images/bg-texture.jpg);
+  background-repeat: repeat;
+}
 
-  .welcome-background {
-  /* Set rules to fill background */
-  min-height: 100%;
-  min-width: 1024px;
-
-  /* Set up proportionate scaling */
-  width: 100%;
-  height: auto;
-
-  /* Set up positioning */
+.welcome-image {
   position: fixed;
   top: 0;
   left: 0;
 }
 
-@media screen and (max-width: 1024px) { /* Specific to this particular image */
-  .welcome-background {
+@media (max-width: 1280px) {
+  .welcome-image-horizontal {
+    display: none !important;
+  }
+
+  .welcome-image-vertical {
+    display: block !important;
+    width: 100%;
+  }
+
+  .vertical-logo {
+    width: 100%;
+  }
+
+  .welcome-links {
+    width: 75%;
+    margin: 10% auto;
+  }
+}
+
+@media (min-width: 1280px) {
+  .welcome-image-horizontal {
+    display: block !important;
+  }
+
+  .welcome-image-vertical {
+    display: none !important;
+  }
+
+  .horizontal-logo {
+    height: 100%;
+  }
+
+  .welcome-links {
+    width: 50%;
+    position: absolute;
+    top: 50%;
     left: 50%;
-    margin-left: -512px;   /* 50% */
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding: 2% 5%;
   }
-}
-
-    .container-welcome {
-      width: 60%;
-      height: 80%;
-      background-color: #101010;
-      position: absolute;
-      opacity: 0.95;
-      left:50%;
-      top:50%;
-      -webkit-transform: translate(-50%, -50%);
-       -moz-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      text-align: center;
-    }
-
-
-@media screen and (min-width: 768px) { /* Specific to this particular image */
-    .container-welcome {
-      width: 45%;
-      height: 80%;
-      background-color: #101010;
-      position: absolute;
-      opacity: 0.95;
-      left:50%;
-      top:50%;
-      -webkit-transform: translate(-50%, -50%);
-       -moz-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      text-align: center;
-    }
-}
-
-@media screen and (min-width: 1024px) { /* Specific to this particular image */
-.container-welcome {
-  width: 30%;
-  height: 80%;
-  background-color: #101010;
-  position: absolute;
-  opacity: 0.95;
-  left:15%;
-  top:50%;
-  -webkit-transform: translate(-15%, -50%);
-   -moz-transform: translate(-15%, -50%);
-  transform: translate(-15%, -50%);
-  text-align: center;
-  }
-}
-
-.welcome-image {
-  width: 100%;
 }
 
 .welcome-logo {
-  width: 80%;
-  margin-top: 5%;
+  width: 100%;
+  padding: 2% 10%;
 }
 
 .language-selector-title {
   padding: 5% 10% 2% 10%;
-  color: #FFFFFF;
+  color: #101010;
   text-align: left;
 }
 
 .language-selector {
   padding: 2% 5%;
-  color: #FFFFFF;
+  color: #101010;
   text-align: left;
 }
 
@@ -129,12 +121,12 @@ hr {
 }
 
 .language-link {
-  color: #FFFFFF;
-  font-size: 1.2rem;
+  color: #101010;
+  font-size: 1.3rem;
+  font-family: 'Oswald', sans-serif;
 }
 
 /* Language Bar */
-
 .language-bar {
   background-color: #101010;
   color: #FFFFFF;
@@ -153,7 +145,6 @@ hr {
 }
 
 /* Navigation Bar */
-
 .navbar {
   padding: 0.5% 5%;
   background-color: #000033;
@@ -168,7 +159,6 @@ hr {
 }
 
 /* About XAIU */
-
 #message, #campusculture {
   background-color: #000033;
   color: #FFFFFF;
@@ -205,11 +195,16 @@ hr {
 }
 
 .university-motto-photo {
-  height: 100%;
+  width: 30%;
+  float: right;
+  padding: 0 0 2% 5%;
+}
+
+.awards-list {
+  padding-left: 20px;
 }
 
 /* Majors & Programs */
-
 .thead-color {
   background-color: #000033;
   color: #FFFFFF;
@@ -230,11 +225,10 @@ hr {
 }
 
 .card-subtext {
-    font-family: 'Quattrocento', serif;
+  font-family: 'Quattrocento', serif;
 }
 
 /* Research */
-
 .research-list {
   padding-left: 20px;
   padding-right: 80px;
@@ -245,7 +239,6 @@ hr {
 }
 
 /* Contact */
-
 .contact-text {
   background-color: #000033;
   color: #FFFFFF;
@@ -259,21 +252,21 @@ hr {
 }
 
 .map-xian {
-width: 100%;
+  width: 100%;
 }
 
 /* Footer */
-
 #footer {
   background-color: #101010;
   color: #FFFFFF;
   font-size: 0.8rem;
   text-align: center;
   padding: 1% 5%;
+  flex-shrink: 0;
 }
 
 .social-logo {
-padding: 1%;
+  margin: 1%;
 }
 
 .social-link {
